@@ -1,7 +1,7 @@
-#!MANAGED-CONFIG https://lting.cyou/link/2faj9pXO3Fp585aH?clash=1
+#!MANAGED-CONFIG https://lting.cyou/link/9sSt4xs6vLg62Dki?clash=1
 
 #---------------------------------------------------#
-## 上次更新于：2023-05-05 10:38:42
+## 上次更新于：2023-05-05 12:20:03
 #---------------------------------------------------#
 
 port: 7890
