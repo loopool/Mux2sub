@@ -47,18 +47,14 @@ class tempsite():
         req=self.register(email,password)
         token=req.json()["data"]["token"]
         subscribe=self._sub.format(token=token)
+        with open("./free/"+self._name,"a") as f:
+            f.write(email+'\n')
         return subscribe
 
     def save_conf(self):
         sub_url=self.getSubscribe()
-        #retry
-        for k in range(3):
-            try:
-                with open('./sub_list', 'a') as f:
-                    f.write(sub_url+'\n')
-                break
-            except:
-                pass
+        with open('./sub_list', 'a') as f:
+            f.write(sub_url+'\n')
 
 def get_conf():
     with open('./utils/config.yaml',encoding="UTF-8") as f:

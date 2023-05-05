@@ -49,22 +49,14 @@ class tempsite():
         req=self.register(email,password)
         token=req.json()["data"]["token"]
         subscribe=self._sub.format(token=token)
+        with open("./free/"+self._name,"a") as f:
+            f.write(email+'\n')
         return subscribe
 
     def save_conf(self):
         sub_url=self.getSubscribe()
-        #retry
-        for k in range(3):
-            try:
-                req=requests.get(sub_url,timeout=5)
-                v2conf=req.text
-                with open('./sub_list', 'a') as f:
-                    f.write(sub_url+'\n')
-                break
-            except:
-                v2conf=""
-        with open("./free/"+self._name,"w") as f:
-                    f.write(v2conf)
+        with open('./sub_list', 'a') as f:
+            f.write(sub_url+'\n')
 
 def get_conf():
     currentTime = datetime.now().strftime("%Y-%m-%d\t%H:%M:%S")
